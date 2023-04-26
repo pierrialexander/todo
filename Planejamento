@@ -1,0 +1,57 @@
+-- PLANEJAMENTO
+
+Entidades e relacionamentos.
+
+
+-- Usuário
+
+-- Usuário X Tarefa
+--- Um usuário pode criar VÁRIAS tarefas
+
+-- Usuário X Categoria
+--- Um usuário pode ter VÁRIAS categorias
+
+------------------------------------------------------
+
+-- Tarefas
+
+-- Tarefa X Usuário
+--- Uma tarefa sempre vai pertencer a um ÚNICO usuário
+
+
+-- Tarefa X Categorias
+--- Uma tarefa sempre vai pertencer a UMA categoria
+
+-------------------------------------------------------
+
+-- Categorias
+
+-- Categoria X Tarefa
+--- Uma categoria podeter VÁRIAS tarefas
+
+-- Categoria X Usuário
+--- Uma categoria SEMPRE vai pertencer a um usuário
+
+
+------- DETALHAMENTO DAS MIGRATIONS
+
+User:
+- Laravel
+
+
+Tarefa:
+
+- Id
+- Title
+- Date
+- Description
+- Category_id
+- User_id
+
+
+Categoria:
+
+- Id
+- Name
+- Color hexadecimal
+- User_id
