@@ -3,11 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Category;
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * MODE USER
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +46,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relacionamentos Usuário pode ter MUITAS taregas.
+     */
+    public function tasks() {
+        return $this->hasMany(Task::class);
+    }
+
+    /**
+     * Relacionamento Usuário pode ter MUITAS categorias.
+     */
+    public function categories() {
+        return $this->hasMany(Category::class);
+    }
 }
